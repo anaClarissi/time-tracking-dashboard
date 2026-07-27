@@ -1,0 +1,63 @@
+/*========================*/
+/*        VARIABLES       */
+/*========================*/
+
+:root {
+  --purple-600: #5433ec;
+
+  --orange-300: #ff8c66;
+  --blue-300: #56c2e6;
+  --pink-400: #ff5c7c;
+  --green-400: #4acf81;
+  --purple-700: #7536d3;
+  --yellow-300: #f1c65b;
+
+  --navy-950: #0f1424;
+  --navy-900: #1c1f3a;
+  --purple-500: #6f76c8;
+  --navy-200: #bdc1ff;
+
+  --body-bg-color: var(--navy-950);
+
+  --font-primary: "Rubik";
+}
+
+/*========================*/
+/*         GEARALS        */
+/*========================*/
+
+*,
+*::after,
+*::before h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 100dvh;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  background-color: var(--body-bg-color);
+}
+
+
+
+/*========================*/
+/*          MAIN          */
+/*========================*/
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+}
