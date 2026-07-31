@@ -151,8 +151,26 @@ body {
   font-weight: 500;
   text-decoration: none;
   color: var(--main-card-header-link-color);
+  transition: all .2s ease-in-out;
 }
 
 .main-link.active {
   color: var(--main-card-header-link-active-color);
+}
+
+
+/*========================*/
+/*      ACCESSIBILITY     */
+/*========================*/
+
+@media (prefers-reduced-motion: reduce) {
+  
+  /*========================*/
+  /*       GRID CARDS       */
+  /*========================*/
+
+  .main-link {
+    transition: none;
+  }
+
 }
