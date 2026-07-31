@@ -38,6 +38,17 @@
   --main-card-header-link-color: var(--purple-500);
   --main-card-header-link-active-color: white;
 
+  /* ------ OTHER CARDS ------*/
+
+  --work-card-bg-color: var(--orange-300);
+  --play-card-bg-color: var(--blue-300);
+  --study-card-bg-color: var(--pink-400);
+  --exercise-card-bg-color: var(--green-400);
+  --social-card-bg-color: var(--purple-700);
+  --self-card-bg-color: var(--yellow-300);
+  --card-primary-text-color: white;
+  --card-secondary-text-color: var(--navy-200);
+
   /* ------ FONT ------*/
 
   --font-primary: "Rubik", Arial, Helvetica, sans-serif;
@@ -98,6 +109,8 @@ body {
   background-color: var(--card-bg-color);
   border: none;
   border-radius: var(--card-border-radius);
+  background-repeat: no-repeat;
+  background-position: top right;
 }
 
 .main-card .card-header {
@@ -156,6 +169,31 @@ body {
 
 .main-link.active {
   color: var(--main-card-header-link-active-color);
+}
+
+.work-card {
+  background-image: url('/src/assets/images/icon-work.svg');
+  background-color: var(--work-card-bg-color);
+}
+
+.play-card {
+  background-color: var(--play-card-bg-color);
+}
+
+.study-card {
+  background-color: var(--study-card-bg-color);
+}
+
+.exercise-card {
+  background-color: var(--exercise-card-bg-color);
+}
+
+.social-card {
+  background-color: var(--social-card-bg-color);
+}
+
+.self-card {
+  background-color: var(--self-card-bg-color);
 }
 
 
