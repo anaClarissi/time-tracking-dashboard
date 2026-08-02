@@ -14,33 +14,54 @@
 
   --navy-950: #0f1424;
   --navy-900: #1c1f3a;
+  --navy-700: #1a1d4b;
   --purple-500: #6f76c8;
   --navy-200: #bdc1ff;
 
   /* ------ BODY ------*/
 
   --body-bg-color: var(--navy-950);
+  --body-font-size: 1rem;
+
+  /* ------ MAIN ------*/
+
+  --main-padding: 4rem 1rem;
+  --transition: all .2s ease-in-out;
 
   /* ------ CARD ------*/
 
+  --grid-cards-gap: 1.5rem;
   --card-bg-color: var(--navy-900);
+  --card-bg-color-hover: var(--navy-700);
+  --card-bg-position: 90% -0.25rem;
+  --card-bg-size: 25%;
   --card-text-color: var(--navy-200);
   --card-text-size: 0.875rem;
   --card-border-radius: 1rem;
   --card-padding: 1.5rem;
+  --card-padding-top: 2.25rem;
   --card-body-padding: var(--card-padding) 1rem;
   --card-title-text-color: white;
+  --card-title-font-size: 0.875rem;
+  --card-current-data-font-size: 1.75rem;
   --card-current-data-text-color: white;
 
   /* ------ MAIN CARD ------*/
 
+  --main-card-header-column-gap: 1rem;
+  --main-card-header-row-gap: 0.15rem;
   --main-card-header-bg-color: var(--purple-600);
   --main-card-header-img-border: 2px solid var(--navy-200);
   --main-card-header-bg-gradient: linear-gradient(45deg, var(--purple-600), var(--purple-700));
+  --main-card-header-img-max-width: 4rem;
+  --main-card-header-title-font-size: 1.5rem;
   --main-card-header-title-color: white;
+  --main-card-header-subtitle-font-size: 1rem;
   --main-card-header-subtitle-color: var(--navy-200);
   --main-card-header-link-color: var(--purple-500);
   --main-card-header-link-active-color: white;
+  --main-card-list-padding: 1.5rem 1rem;
+  --main-card-list-link-font-size: 1rem;
 
   /* ------ OTHER CARDS ------*/
 
@@ -56,6 +77,7 @@
   /* ------ FONT ------*/
 
   --font-primary: "Rubik", Arial, Helvetica, sans-serif;
+
 }
 
 /*========================*/
@@ -77,7 +99,7 @@ body {
   width: 100%;
   min-height: 100dvh;
   font-family: var(--font-primary);
-  font-size: 1rem;
+  font-size: var(--body-font-size);
   background-color: var(--body-bg-color);
 }
 
@@ -91,7 +113,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 1rem;
+  padding: var(--main-padding);
   min-height: 100dvh;
   width: 100%;
 }
@@ -103,7 +125,7 @@ body {
 .grid-cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: var(--grid-cards-gap);
 }
 
 .card {
@@ -114,16 +136,17 @@ body {
   border: none;
   border-radius: var(--card-border-radius);
   background-repeat: no-repeat;
-  background-position: 90% -0.25rem;
-  background-size: 25%;
+  background-position: var(--card-bg-position);
+  background-size: var(--card-bg-size);
   font-size: var(--card-text-size);
 }
 
 .card:not(.main-card) {
-  padding-top: 2.25rem;
+  padding-top: var(--card-padding-top);
+  cursor: pointer;
 }
 
-.card.card:not(.main-card) .card-body {
+.card:not(.main-card) .card-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -131,10 +154,15 @@ body {
   background-color: var(--card-bg-color);
   border-radius: var(--card-border-radius);
   transform: translateY(1px);
+  transition: var(--transition);
+}
+
+.card.card:not(.main-card) .card-body:hover {
+  background-color: var(--card-bg-color-hover);
 }
 
 .card:not(.main-card) .title {
-  font-size: 0.875rem;
+  font-size: var(--card-title-font-size);
   font-weight: 500;
   color: var(--card-title-text-color);
   margin: 0;
@@ -143,8 +171,8 @@ body {
 .main-card .card-header {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  column-gap: 1rem;
-  row-gap: 0.15rem;
+  column-gap: var(--main-card-header-column-gap);
+  row-gap: var(--main-card-header-row-gap);
   grid-template-rows: auto auto;
   border-radius: var(--card-border-radius);
   background-color: var(--main-card-header-bg-color);
@@ -157,7 +185,8 @@ body {
 }
 
 .main-card .card-header--img {
-  max-width: 4rem;
+  width: 100%;
+  max-width: var(--main-card-header-img-max-width);
   grid-column: 1 / span 1;
   grid-row: 1 / span 2;
   border-radius: 50%;
@@ -165,13 +194,13 @@ body {
 }
 
 .main-card .title {
-  font-size: 1.5rem;
+  font-size: var(--main-card-header-title-font-size);
   font-weight: 300;
   color: var(--main-card-header-title-color);
 }
 
 .main-card .subtitle {
-  font-size: 1rem;
+  font-size: var(--main-card-header-subtitle-font-size);
   align-self: self-end;
   margin: 0;
   color: var(--main-card-header-subtitle-color);
@@ -182,16 +211,21 @@ body {
   justify-content: space-around;
   list-style: none;
   width: 100%;
-  padding: 1.5rem 1rem;
+  padding: var(--main-card-list-padding);
   margin: 0;
 }
 
 .main-link {
-  font-size: 1rem;
+  font-size: var(--main-card-list-link-font-size);
   font-weight: 500;
   text-decoration: none;
   color: var(--main-card-header-link-color);
-  transition: all .2s ease-in-out;
+  transition: var(--transition);
+}
+
+.main-link:hover,
+.main-link:focus {
+  color: var(--main-card-header-link-active-color);
 }
 
 .main-link.active {
@@ -240,8 +274,16 @@ body {
   border: none;
 }
 
+.ellipsi-icon{
+  transition: var(--transition);
+}
+
+.btn-ellipsi:hover .ellipsi-icon {
+  filter: brightness(100);
+}
+
 .current-data {
-  font-size: 1.75rem;
+  font-size: var(--card-current-data-font-size);
   font-weight: 300;
   color: var(--card-current-data-text-color);
 }
@@ -292,8 +334,14 @@ body {
 
     /* ------ CARD ------*/
 
-     --card-padding: clamp(1.500rem, calc(0.000rem + 2.5vw), 2.000rem);
-     --card-body-padding: var(--card-padding) clamp(1.000rem, calc(-0.500rem + 2.5vw), 1.500rem);
+    --card-padding: clamp(1.500rem, calc(0.000rem + 2.5vw), 2.000rem);
+    --card-padding-top: 3rem;
+    --card-body-padding: var(--card-padding) clamp(1.000rem, calc(-0.500rem + 2.5vw), 1.500rem);
+    --card-current-data-font-size: clamp(2.500rem, calc(-0.500rem + 5vw), 3.500rem);
+
+    /* ------ MAIN CARD ------*/
+
+    --main-card-header-title-font-size: clamp(1.500rem, calc(-0.750rem + 3.75vw), 2.250rem); 
 
   }
     
@@ -306,9 +354,6 @@ body {
     grid-template-rows: 1fr 1fr;
   }
 
-  .card:not(.main-card) {
-    padding-top: 3rem;
-  }
 
   .card:not(.main-card) .card-body {
     gap: 1rem;
@@ -326,10 +371,6 @@ body {
     flex-direction: column;
     padding: var(--card-padding);
     flex: 5;
-  }
-
-  .main-card .title {
-    font-size: clamp(1.500rem, calc(-0.750rem + 3.75vw), 2.250rem);
   }
 
   .main-card .subtitle {
@@ -358,10 +399,6 @@ body {
     align-items: start;
   }
 
-  .current-data {
-    font-size: clamp(2.500rem, calc(-0.500rem + 5vw), 3.500rem);
-  }
-
 }
 
 /*========================*/
@@ -369,13 +406,17 @@ body {
 /*========================*/
 
 @media (prefers-reduced-motion: reduce) {
-  
-  /*========================*/
-  /*       GRID CARDS       */
-  /*========================*/
 
-  .main-link {
-    transition: none;
+  /*========================*/
+/*        VARIABLES       */
+/*========================*/
+  
+  :root {
+
+    /* ------ MAIN ------*/
+    
+    --transition: none;
+    
   }
 
 }
